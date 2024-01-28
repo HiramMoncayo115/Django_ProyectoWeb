@@ -3,7 +3,15 @@
 {% load static%}
 
 {% block content %}
+
+<div class="contenedorFormulario"> <!-- La clase que estamos usando se importa desde nuestra hoja de estilos es static y gestion.css -->
+  <form action="" method="POST" style="text-align: center;"> <!-- Creamos el formulario para indicar al navegador que vamos a enviar la informacion -->
+    {% csrf_token %} <!-- token para prevenir que la informacion esta llenada desde la pagina, para asegurar que nos se esta mandando desde otra esto para los formularios -->
+    <table  style="color: white; margin: 20px auto;" >{{miFormulario.as_table}}</table> <!-- Mostrsmos el forms que genera DJANGO le damos color y tambien usamos la propiedad as_table para que nos muestre la informacion en una tabla -->
+    <input type="submit" value="Enviar" style="width: 150px;"> <!-- Creamos boton para mandar la informacion de FORM todo lo que esta dentro del form se enviara este es el boton -->
+  </form>
   
-<p style="color: white;">{{miFormulario}}</p>
+</div>
+
 
 {% endblock %}
